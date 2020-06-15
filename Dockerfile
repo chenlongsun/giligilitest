@@ -1,6 +1,6 @@
 FROM golang as build
 
-ENV GOPROXY=https://mirrors.aliyun.com/goproxy
+ENV GOPROXY=https://goproxy.cn
 
 ADD . /giligili
 

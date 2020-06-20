@@ -3,7 +3,6 @@ package model
 import (
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 
 	//
@@ -20,9 +19,6 @@ func Database(connString string) {
 	// Error
 	if err != nil {
 		panic(err)
-	}
-	if gin.Mode() == "release" {
-		db.LogMode(false)
 	}
 	//设置连接池
 	//空闲

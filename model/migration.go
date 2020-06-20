@@ -4,7 +4,16 @@ package model
 
 func migration() {
 	// 自动迁移模式
-	DB.Set("gorm:table_options", "charset=utf8mb4").
-		AutoMigrate(&User{}).
-		AutoMigrate(&Video{})
+	DB.AutoMigrate(&User{})
+	DB.AutoMigrate(&Video{})
+	DB.AutoMigrate(&Comment{})
+	DB.AutoMigrate(&VideoLike{})
+	DB.AutoMigrate(&Group{})
+	DB.AutoMigrate(&GroupUser{})
+	DB.AutoMigrate(&Chat{})
+	DB.AutoMigrate(&Contact{})
+
+	//创建外键
+	DB.Model(&VideoLike{}).AddForeignKey("video_id", "videos(id)", "RESTRICT", "RESTRICT")
+	DB.Model(&VideoLike{}).AddForeignKey("user_id", "users(id)", "RESTRICT", "RESTRICT")
 }

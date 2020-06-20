@@ -1,6 +1,6 @@
 package serializer
 
-// Response 基础序列化器
+// Response 团队基础序列化器
 type Response struct {
 	Status int         `json:"status"`
 	Data   interface{} `json:"data"`
